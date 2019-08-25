@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #fff;
+  overflow-y: hidden; }
+
+#page {
+  height: inherit;
+  background-color: #333;
+  position: relative; }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  height: 50px; }
+
+.pull-up {
+  position: absolute;
+  min-height: 60px;
+  width: 100%;
+  bottom: 0;
+  background-color: #4f4f4f;
+  border-radius: 10px 10px 0 0;
+  padding: 0 15px; }
+
+.prompt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; }
+  .prompt .placeholder {
+    font-size: 14px; }
+  .prompt .radiance {
+    height: 40px;
+    width: 40px;
+    position: relative; }
+    .prompt .radiance__circle {
+      display: inline-block;
+      border-radius: 50%;
+      border: 3px solid #2d9cdb; }
+      .prompt .radiance__circle--first {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        animation: fadein 2s cubic-bezier(0.4, 0, 0.2, 1) 1s infinite alternate; }
+      .prompt .radiance__circle--second {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        animation: fadein 2s cubic-bezier(0.4, 0, 0.2, 1) 600ms infinite alternate; }
+      .prompt .radiance__circle--third {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        animation: fadein 2s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; }
+
+@keyframes fadein {
+  0% {
+    opacity: 0.1; }
+  50% {
+    opacity: 0.5; }
+  100% {
+    opacity: 1; } }
+
+.spectrum {
+  height: 100px;
+  width: 180px;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .spectrum__bar {
+    display: inline-block;
+    width: 7px;
+    background-color: #c4c4c4;
+    border-radius: 30px; }
+    .spectrum__bar:nth-child(odd) {
+      height: 90px;
+      animation: audio-odd 2s ease-in-out infinite alternate; }
+    .spectrum__bar:nth-child(even) {
+      height: 60px;
+      animation: audio-even 2s ease-in-out infinite alternate; }
+
+@keyframes audio-odd {
+  0% {
+    transform: scaleY(1); }
+  50% {
+    transform: scaleY(0.75); }
+  100% {
+    transform: scaleY(1); } }
+
+@keyframes audio-even {
+  0% {
+    transform: scaleY(1); }
+  50% {
+    transform: scaleY(1.5); }
+  100% {
+    transform: scaleY(1); } }
